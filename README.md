@@ -23,11 +23,11 @@ jobs:
       run: | 
         docker version
         # 登录阿里云镜像仓库
-        docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-shenzhen.aliyuncs.com
+        docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
         # 使用Dockerfile构建镜像
-        docker build . --file Dockerfile --tag registry.cn-shenzhen.aliyuncs.com/devan/hanlp-jupyterlab
+        docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/willyun/hanlp-jupyterlab
         # 推送镜像到镜像仓库
-        docker push registry.cn-shenzhen.aliyuncs.com/devan/hanlp-jupyterlab
+        docker push registry.cn-hangzhou.aliyuncs.com/willyun/hanlp-jupyterlab
 ```
 > github actions的workflow语法可以查看[官方文档](https://docs.github.com/cn/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)
 
@@ -36,14 +36,14 @@ jobs:
 ![设置secrets](./images/set-secrets-1.png)
 ![设置secrets](./images/set-secrets-2.png)
 
-在secrets中设置好登录docker的用户名和密码后，还需要将上面的仓库地址和镜像名称`registry.cn-shenzhen.aliyuncs.com/devan/hanlp-jupyterlab`修改为自己的仓库地址和镜像名称
+在secrets中设置好登录docker的用户名和密码后，还需要将上面的仓库地址和镜像名称`registry.cn-hangzhou.aliyuncs.com/willyun/hanlp-jupyterlab`修改为自己的仓库地址和镜像名称
 
 点击`Actions`即可查看运行状态
 
 # 使用方法
 使用如下命令启动容器：
 ```
- docker run --name hanlp -d  -p 8888:8888 registry.cn-shenzhen.aliyuncs.com/devan/hanlp-jupyterlab
+ docker run --name hanlp -d  -p 8888:8888 registry.cn-hangzhou.aliyuncs.com/willyun/hanlp-jupyterlab
 ```
 使用如下命令查看容器启动日志：
 ```
