@@ -18,8 +18,8 @@ jobs:
       run: | 
         docker version
         # 登录阿里云镜像仓库
-        docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-shenzhen.aliyuncs.com
+        docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }} registry.cn-hangzhou.aliyuncs.com
         # 使用Dockerfile构建镜像
-        docker build . --file Dockerfile --tag registry.cn-shenzhen.aliyuncs.com/willyun/hanlp-jupyterlab
+        docker build . --file Dockerfile --tag cn-hangzhou.aliyuncs.com/willyun/hanlp-jupyterlab
         # 推送镜像到镜像仓库
-        docker push registry.cn-shenzhen.aliyuncs.com/willyun/hanlp-jupyterlab
+        docker push registry.cn-hangzhou.aliyuncs.com/willyun/hanlp-jupyterlab
